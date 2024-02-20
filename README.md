@@ -1,5 +1,8 @@
 # Windows Virtual Desktop Helper
 
+仅用于个人使用，原理请参阅原项目，本项目修改由ChatGpt实现。
+功能：窗口切换，仅支持双窗口相互切换
+
 Simple and lightweight app to help with Virtual Desktops for Windows 10 and Windows 11.
 
 ![Screenshot](Images/WindowsVirtualDeskopHelper%20Screenshot.png)
