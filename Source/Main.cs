@@ -1,23 +1,51 @@
 ﻿using System;
-using System.Windows.Forms;
+using WindowsVirtualDesktopHelper.VirtualDesktopAPI;
+using WindowsVirtualDesktopHelper.VirtualDesktopAPI.Implementation;
 
-namespace WindowsVirtualDesktopHelper {
-	class Program {
+class Program
+{
+    static IVirtualDesktopManager GetDesktopManagerForCurrentOS()
+    {
+        string implementation = Loader.GetImplementationForOS();
+        switch (implementation)
+        {
+            case Loader.VirtualDesktopWin11_23H2_2921:
+                return new VirtualDesktopWin11_23H2_2921();
+            case Loader.VirtualDesktopWin11_23H2:
+                return new VirtualDesktopWin11_23H2();
+            case Loader.VirtualDesktopWin11_22H2:
+                return new VirtualDesktopWin11_22H2();
+            case Loader.VirtualDesktopWin11_21H2:
+                return new VirtualDesktopWin11_21H2();
+            case Loader.VirtualDesktopWin11_Insider:
+                return new VirtualDesktopWin11_Insider();
+            case Loader.VirtualDesktopWin11_Insider22631:
+                return new VirtualDesktopWin11_Insider22631();
+            case Loader.VirtualDesktopWin11_Insider25314:
+                return new VirtualDesktopWin11_Insider25314();
+            case Loader.VirtualDesktopWin10:
+                return new VirtualDesktopWin10();
+            default:
+                throw new Exception("Unsupported Windows version");
+        }
+    }
 
-		[STAThread]
-		public static void Main(string[] args) {
-			try {
-				Application.EnableVisualStyles();
-				Application.SetCompatibleTextRenderingDefault(false);
-				var app = new App();
-				Application.Run(app.SettingsForm);
-			} catch (Exception e) {
-				// Global error handler
-				Console.Error.WriteLine(e);
-				var form = new ErrorForm();
-				form.UpdateUIForError(e);
-				Application.Run(form);
-			}
-		}
-	}
+    static void Main(string[] args)
+    {
+        var desktopManager = GetDesktopManagerForCurrentOS();
+
+        // 获取当前的桌面索引
+        var currentIndex = desktopManager.Current();
+
+        // 如果当前是第一个桌面（索引为0），则切换到下一个（即第二个）桌面
+        // 如果当前是第二个桌面（索引为1），则切换到前一个（即第一个）桌面
+        if (currentIndex == 0)
+        {
+            desktopManager.SwitchToDesktop(1);
+        }
+        else if (currentIndex == 1)
+        {
+            desktopManager.SwitchToDesktop(0);
+        }
+    }
 }

@@ -73,50 +73,13 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Forms\AboutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AboutForm.Designer.cs">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="App\App.cs" />
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Forms\ErrorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ErrorForm.Designer.cs">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LogForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\LogForm.Designer.cs">
-      <DependentUpon>LogForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs" />
-    <Compile Include="App\Settings.cs" />
-    <Compile Include="Forms\SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SwitchNotificationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SwitchNotificationForm.Designer.cs">
-      <DependentUpon>SwitchNotificationForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Util\Emoji.cs" />
-    <Compile Include="Util\Icons.cs" />
-    <Compile Include="Util\Logging.cs" />
-    <Compile Include="Util\OS.cs" />
-    <Compile Include="VirtualDesktopAPI\Implementation\VirtualDesktopWin10.cs" />    
+    <Compile Include="VirtualDesktopAPI\Implementation\VirtualDesktopWin10.cs" />
     <Compile Include="VirtualDesktopAPI\Implementation\VirtualDesktopWin11_Insider25314.cs" />
     <Compile Include="VirtualDesktopAPI\Implementation\VirtualDesktopWin11_Insider22631.cs" />
     <Compile Include="VirtualDesktopAPI\Implementation\VirtualDesktopWin11_Insider.cs" />
@@ -126,30 +89,6 @@
     <Compile Include="VirtualDesktopAPI\Implementation\VirtualDesktopWin11_21H2.cs" />
     <Compile Include="VirtualDesktopAPI\IVirtualDesktopManager.cs" />
     <Compile Include="VirtualDesktopAPI\Loader.cs" />
-    <Compile Include="WindowsHotKeyAPI\KeyboardHook.cs" />
-    <Compile Include="WindowsInputAPI\IInputDeviceStateAdaptor.cs" />
-    <Compile Include="WindowsInputAPI\IInputMessageDispatcher.cs" />
-    <Compile Include="WindowsInputAPI\IInputSimulator.cs" />
-    <Compile Include="WindowsInputAPI\IKeyboardSimulator.cs" />
-    <Compile Include="WindowsInputAPI\IMouseSimulator.cs" />
-    <Compile Include="WindowsInputAPI\InputBuilder.cs" />
-    <Compile Include="WindowsInputAPI\InputSimulator.cs" />
-    <Compile Include="WindowsInputAPI\KeyboardSimulator.cs" />
-    <Compile Include="WindowsInputAPI\MouseButton.cs" />
-    <Compile Include="WindowsInputAPI\MouseSimulator.cs" />
-    <Compile Include="WindowsInputAPI\Native\HARDWAREINPUT.cs" />
-    <Compile Include="WindowsInputAPI\Native\INPUT.cs" />
-    <Compile Include="WindowsInputAPI\Native\InputType.cs" />
-    <Compile Include="WindowsInputAPI\Native\KEYBDINPUT.cs" />
-    <Compile Include="WindowsInputAPI\Native\KeyboardFlag.cs" />
-    <Compile Include="WindowsInputAPI\Native\MouseFlag.cs" />
-    <Compile Include="WindowsInputAPI\Native\MOUSEINPUT.cs" />
-    <Compile Include="WindowsInputAPI\Native\MOUSEKEYBDHARDWAREINPUT.cs" />
-    <Compile Include="WindowsInputAPI\Native\NativeMethods.cs" />
-    <Compile Include="WindowsInputAPI\Native\VirtualKeyCode.cs" />
-    <Compile Include="WindowsInputAPI\Native\XButton.cs" />
-    <Compile Include="WindowsInputAPI\WindowsInputDeviceStateAdaptor.cs" />
-    <Compile Include="WindowsInputAPI\WindowsInputMessageDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -172,34 +111,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Forms\AboutForm.resx">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ErrorForm.resx">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LogForm.resx">
-      <DependentUpon>LogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SwitchNotificationForm.resx">
-      <DependentUpon>SwitchNotificationForm.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
