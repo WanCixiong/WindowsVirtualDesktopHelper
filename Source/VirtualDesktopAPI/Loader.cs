@@ -53,14 +53,22 @@ namespace WindowsVirtualDesktopHelper.VirtualDesktopAPI
             {
                 return VirtualDesktopWin11_Insider;
             }
-            else if (currentBuild >= 22631)
-            {
-                return VirtualDesktopWin11_Insider22631;
-            }
-            else if (currentBuild >= 22621)
-            {
-                if (currentBuildRevision >= 2921 && currentBuildRevision < 3007)
-                {
+            // else if (currentBuild >= 22631)
+            // {
+            //     return VirtualDesktopWin11_Insider22631;
+            // }
+            // else if (currentBuild >= 22621)
+            // {
+            //     if (currentBuildRevision >= 2921 && currentBuildRevision < 3007)
+		    // else if(currentBuild >= 22631) {
+		    //		Util.Logging.WriteLine("GetImplementationForOS: Detected Windows 11 Insider Canary 22631 due to build >= 22631");
+		    //		return VirtualDesktopWin11_Insider22631;
+		    //	}
+		    else if (currentBuild >= 22621) {
+				// 22631 = 22621 + Enablement Package (windows11.0-kb5027397-x64.cab)
+				// 22635 = 22621 + Enablement Package (windows11.0-kb5031483-x64.cab) and this would be maybe 24H2
+				if ((currentBuildRevision >= 2921 && currentBuildRevision< 3007) || (currentBuildRevision >= 3061)) {
+
                     return VirtualDesktopWin11_23H2_2921;
                 }
                 else if (currentBuildRevision >= 2050)
